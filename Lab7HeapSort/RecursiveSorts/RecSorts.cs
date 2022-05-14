@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecursiveSorts
 {
-    public class RecSorts
+    public static class RecSorts
     {
         public static void HeapSort( int[] arr, int size ) => throw new NotImplementedException( );
         public static void MergeSort( int [ ] arr, int size ) => throw new NotImplementedException( );
