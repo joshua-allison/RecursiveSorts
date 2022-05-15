@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace PriorityQHeap
 {
     public class PriorityQ
     {
-        public PriorityQ ( ) { }
-        public void AddItem( int value ) => throw new NotImplementedException( );
-        public int GetItem( ) => throw new NotImplementedException( );
+        private Heap Heap { get; set; }
+
+        private const int DEFAULT_SIZE = 10;
+
+        public PriorityQ ( int size = DEFAULT_SIZE )
+        {
+            int Size = ( size < 1 ) ? DEFAULT_SIZE : size;
+            Heap = new( Size );
+        }
+
+        public void AddItem( int value ) => Heap.AddItem( value );
+
+        public int GetItem( ) => Heap.GetItem( );
     }
 }
