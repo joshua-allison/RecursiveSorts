@@ -8,6 +8,7 @@ namespace RecursiveSorts
 {
     public static class RecSorts
     {
+        static void Main( string [ ] args ) { }
         public static void HeapSort( int[] arr, int size ) => throw new NotImplementedException( );
         public static void MergeSort( int [ ] arr, int size ) => throw new NotImplementedException( );
         public static void QuickSort( int [ ] arr, int size ) => throw new NotImplementedException( );
