@@ -32,12 +32,12 @@ namespace Lab7HeapSort
             // Advanced Lab Tests
             // These require the implementation of a static class containing the appropriate methods
             //TestHeapSort();
-            TestMergeSort();
-            TestQuickSort();
+            //TestMergeSort();
+            //TestQuickSort();
 
             // Thinking Problem test
             // This driver requires that the return type for FindNth be a nullable int
-            //TestFindNth();
+            TestFindNth();
 
             Console.Write("Press Enter to exit.");
             Console.Read();

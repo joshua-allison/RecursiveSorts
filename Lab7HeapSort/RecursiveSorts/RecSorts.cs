@@ -14,27 +14,75 @@ namespace RecursiveSorts
     {
         static void Main( string [ ] args ) { }
 
+
+        // Heap Sort
         /// <summary>
         /// 
         /// </summary>
         /// <param name="arr"></param>
         /// <param name="size"></param>
         /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
-        public static void HeapSort( int[] arr, int size )
+        public static void HeapSort( int [ ] arr, int size ) => RecursiveHeapSort( arr, size );
+
+        /// <summary> "Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the minimum element and place the minimum element at the beginning. We repeat the same process for the remaining elements." </summary>
+        /// <param name="theArray"> The array to be heap-sorted. </param>
+        /// <param name="size"> The size of the array to be heap-sorted. </param>
+        /// <accreditation> This method and the algorithm within is from "Heap Sort" found at https://www.geeksforgeeks.org/heap-sort/ </accreditation>
+        private static void RecursiveHeapSort( int [ ] theArray, int size )
         {
-            throw new NotImplementedException( );
+            // Build heap (rearrange array)
+            for ( int i = size / 2 - 1 ; i >= 0 ; i-- )
+                Heapify( theArray, size, i );
+
+            // One by one extract an element from heap
+            for ( int i = size - 1 ; i > 0 ; i-- )
+            {
+                Swap( theArray, 0, i ); // Move current root to end
+                Heapify( theArray, i, 0 ); // call max heapify on the reduced heap
+            }
         }
 
+        /// <summary> "Heapify a subtree rooted with (...) index in theArray." </summary>
+        /// <param name="theArray"></param>
+        /// <param name="size"></param>
+        /// <param name="index"></param>
+        /// <accreditation> This method and the algorithm within is from "Heap Sort" found at https://www.geeksforgeeks.org/heap-sort/ </accreditation>
+        private static void Heapify( int [ ] theArray, int size, int index )
+        {
+            int largest = index; // Initialize largest as root
+            int leftChildIndex = 2 * index + 1;
+            int rightChildIndex = 2 * index + 2;
+
+            // If left child is larger than root
+            if ( leftChildIndex < size && theArray [ leftChildIndex ] > theArray [ largest ] )
+                largest = leftChildIndex;
+
+            // If right child is larger than largest so far
+            if ( rightChildIndex < size && theArray [ rightChildIndex ] > theArray [ largest ] )
+                largest = rightChildIndex;
+
+            // If largest is not root
+            if ( largest != index )
+            {
+                int swap = theArray [ index ];
+                theArray [ index ] = theArray [ largest ];
+                theArray [ largest ] = swap;
+
+                // Recursively heapify the affected sub-tree
+                Heapify( theArray, size, largest );
+            }
+        }
+
+
+        // Merge Sort
         public static void MergeSort( int [ ] theArray, int size ) => RecursiveMergeSort( theArray, 0, size - 1);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="theArray"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <accreditation> This method and the algorithm within is based on "Merge Sort" from https://www.geeksforgeeks.org/merge-sort/ </accreditation>
-        public static void RecursiveMergeSort( int [ ] theArray, int left, int right )
+        /// <summary> "Like QuickSort, Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then it merges the two sorted halves. " </summary>
+        /// <param name="theArray"> The array to be recursively sorted. </param>
+        /// <param name="left"> The left-most index to operate on. </param>
+        /// <param name="right">  The right-most index to operate on.  </param>
+        /// <accreditation> This method and the algorithm within is from "Merge Sort" found at https://www.geeksforgeeks.org/merge-sort/ </accreditation>
+        private static void RecursiveMergeSort( int [ ] theArray, int left, int right )
         {
             if ( left < right )
             {
@@ -48,13 +96,13 @@ namespace RecursiveSorts
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="arr1"></param>
-        /// <param name="arr2"></param>
-        /// <accreditation> This method and the algorithm within is based on "Merge Sort" from https://www.geeksforgeeks.org/merge-sort/ </accreditation>
-        public static void Merge(int [] theArray, int left, int middle, int right )
+        /// <summary> "Used for merging two halves. The Merge(theArray, left, middle, right) is a key process that assumes that theArray[left..middle] and theArray[middle+1..right] are sorted and merges the two sorted sub-arrays into one. " </summary>
+        /// <param name="theArray"> The array that will be sorted and merged </param>
+        /// <param name="left"> The left-most index of theArray. </param>
+        /// <param name="middle"> The middle index of theArray. </param>
+        /// <param name="right"> The right-most index of theArray. </param>
+        /// <accreditation> This method and the algorithm within is from "Merge Sort" found at https://www.geeksforgeeks.org/merge-sort/ </accreditation>
+        private static void Merge(int [] theArray, int left, int middle, int right )
         {
             // Find sizes of two subarrays to be merged
             int leftSize = middle - left + 1;
@@ -108,13 +156,15 @@ namespace RecursiveSorts
             }
         }
 
+
+        // Quick Sort
         public static void QuickSort( int [ ] theArray, int size ) => RecurisveQuickSort( theArray, 0, size - 1 );
 
         /// <summary> "Recursive Program that does quicksort. " </summary>
         /// <param name="arr"> The array to be quicksorted. </param>
         /// <param name="size"> The size of the array to be quicksorted. </param>
         /// <accreditation> The algorithm for this method is based on "CS260 - QuickSort" by Jim Bailey </accreditation>
-        public static void RecurisveQuickSort( int [ ] theArray, int first, int last )
+        private static void RecurisveQuickSort( int [ ] theArray, int first, int last )
         {
             // if the array length is greater than 1
             // partition it, then QuickSort each sub-array
@@ -175,6 +225,8 @@ namespace RecursiveSorts
             return pivotIndex;
         }
 
+
+        // Thinking Problem
         /// <summary>
         /// 
         /// </summary>
@@ -183,7 +235,7 @@ namespace RecursiveSorts
         /// <param name="value"></param>
         /// <returns></returns>
         /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
-        public static int FindNth( int [ ] arr, int size, int value )
+        public static int? FindNth( int [ ] arr, int size, int value )
         {
             throw new NotImplementedException( );
         }
