@@ -25,18 +25,18 @@ namespace Lab7HeapSort
         {
             // Uncomment line to run test
 
-              // Basic Lab Tests
-            TestHeap();
-            TestPriorityQ();
+            // Basic Lab Tests
+            //TestHeap();
+            //TestPriorityQ();
 
-              // Advanced Lab Tests
-              // These require the implementation of a static class containing the appropriate methods
+            // Advanced Lab Tests
+            // These require the implementation of a static class containing the appropriate methods
             //TestHeapSort();
-            //TestMergeSort();
-            //TestQuickSort();
+            TestMergeSort();
+            TestQuickSort();
 
-              // Thinking Problem test
-              // This driver requires that the return type for FindNth be a nullable int
+            // Thinking Problem test
+            // This driver requires that the return type for FindNth be a nullable int
             //TestFindNth();
 
             Console.Write("Press Enter to exit.");
