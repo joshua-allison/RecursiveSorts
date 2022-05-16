@@ -227,18 +227,41 @@ namespace RecursiveSorts
 
 
         // Thinking Problem
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="arr"></param>
-        /// <param name="size"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <summary> This function essentially works like an indexer (arr[i]), except that the way returns the value at index is by recursively partitioning. </summary>
+        /// <param name="arr"> The array to operate on. </param>
+        /// <param name="size"> The size of the array that is being operated on. </param>
+        /// <param name="index"> The index of 'arr' from which the value will be extracted from. </param>
+        /// <returns> The value contained in 'index' </returns>
         /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
-        public static int? FindNth( int [ ] arr, int size, int value )
-        {
-            throw new NotImplementedException( );
-        }
+        public static int? FindNth( int [ ] theArray, int size, int index ) => ModifiedRecurisveQuickSort( theArray, 0, size - 1, index);
 
+        /// <summary> "Recursive Program that does quicksort. " </summary>
+        /// <param name="theArray"> The array to be quicksorted. </param>
+        /// <param name="size"> The size of the array to be quicksorted. </param>
+        /// <accreditation> The algorithm for this method is based on "CS260 - QuickSort" by Jim Bailey </accreditation>
+        private static int? ModifiedRecurisveQuickSort( int [ ] theArray, int first, int last, int index, int? value = null)
+        {
+            /// This modified quick sort returns a nullable int, and since it's recursive, we need to have a way to return the value recursively once we've found it.
+            /// One way to do that is to have the return value also be a parameter that defaults to null.
+
+            // if the array length is greater than 1
+            // partition it, then QuickSort each sub-array
+            if ( first < last && value is null)
+            {
+                // partition, returns index of properly placed pivot
+                int pivot = Partition( theArray, first, last );
+
+                /// We know that when we find a pivot, the value at the index of the pivot itself has already been sorted.
+                /// So, stop the recursion, and return the value found at the index of the pivot.
+                if ( pivot == index )
+                    value = theArray [ pivot ];
+
+                /// then, we assign the value equal to the return value of the recursive sort.
+                /// We do this because if we were to leave it as is, the very first recursive call to the quick sort function would return null, as that is what 'value' was when it was first called.
+                /// By setting value equal to the result of the modified Quick Sort, we preserve the value found at the innermost call of quick sort, and pass it all the way up the stack to the end, where it can be returned to the original calling find Nth function.
+                value = ModifiedRecurisveQuickSort( theArray, first, pivot - 1, index, value );
+            }
+            return value;
+        }
     }
 }
