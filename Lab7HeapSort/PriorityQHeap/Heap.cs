@@ -27,6 +27,10 @@ namespace PriorityQHeap
         private static int Right( int index ) => ( index * 2 ) + 2;  // find the index of the right child of the index argument
 
         // prevent the array from overflowing by doubling it's size
+        //TODO: Document Heap Class Resize
+        /// <summary>
+        /// 
+        /// </summary>
         private void Resize( )  
         {
             int [ ] temp = HeapArray[0..Size];
@@ -43,10 +47,8 @@ namespace PriorityQHeap
             NumItems = 0;
         }
 
-        //TODO: Heap ( int[] arr summary )
-        /// <summary>
-        /// 
-        /// </summary>
+        //TODO: Document Heap Class Resize
+        /// <summary>  </summary>
         /// <param name="arr"></param>
         public Heap( int[] arr)
         {
@@ -79,9 +81,8 @@ namespace PriorityQHeap
             return true;
         }
 
-        /// <summary>
-        /// Sorts the Binary Heap Array after insertion
-        /// </summary>
+        //TODO: Document Heap Class Bubbleup
+        /// <summary> Sorts the Binary Heap Array after insertion. </summary>
         /// <param name="index"></param>
         /// <accreditation> Algorithm from "Open Data Structures" by Pat Morin, Chapter 10: "Heaps", page 213 </accreditation>
         public void BubbleUp( int index )
@@ -95,9 +96,7 @@ namespace PriorityQHeap
             }
         }
 
-        /// <summary>
-        /// Removes and returns a value from the heap.
-        /// </summary>
+        /// <summary> Removes and returns a value from the heap. </summary>
         /// <accreditation> Algorithm from "Open Data Structures" by Pat Morin, Chapter 10: "Heaps", page 213-215 </accreditation>
         public int GetItem( )
         {
@@ -110,9 +109,8 @@ namespace PriorityQHeap
             return root;
         }
 
-        /// <summary>
-        /// Sorts the Binary Heap Array after the removal of the last element on the last level
-        /// </summary>
+        //TODO: Document Heap Class Trickledown
+        /// <summary> Sorts the Binary Heap Array after the removal of the last element on the last level. </summary>
         /// <param name="index"></param>
         /// <accreditation> Algorithm from "Open Data Structures" by Pat Morin, Chapter 10: "Heaps", page 215 </accreditation>
         public void TrickleDown( int index )
@@ -137,11 +135,9 @@ namespace PriorityQHeap
             } while ( index >= 0 );
         }
 
-        /// <summary>
-        /// Swap the values of two given indeces
-        /// </summary>
-        /// <param name="index1"> The first index to swap </param>
-        /// <param name="index2"> The second index to swap </param>
+        /// <summary> Swap the values of two given indeces. </summary>
+        /// <param name="index1"> The first index to swap. </param>
+        /// <param name="index2"> The second index to swap. </param>
         /// <accreditation> https://stackoverflow.com/a/43759284 </accreditation>
         public void Swap( int index1, int index2 )
         {
@@ -155,17 +151,8 @@ namespace PriorityQHeap
             }
         }
 
-        public void Reverse( )
-        {
-            int [] arr = new int[Size];
-            arr = HeapArray;
-            arr.Reverse( );
-            HeapArray = arr;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
+        //TODO: Document and finish Heap Class ToString
+        /// <summary>  </summary>
         /// <returns> A string that visually represents the binary tree heap (even though it's implemented on array). </returns>
         public override string ToString( )
         {

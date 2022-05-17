@@ -3,17 +3,11 @@ using System.Drawing;
 
 namespace PriorityQHeap
 {
+    //TODO: Document PriorityQ Class
     public class PriorityQ
     {
         private Heap Heap { get; set; }
-
-        private const int DEFAULT_SIZE = 10;
-
-        public PriorityQ ( int size = DEFAULT_SIZE )
-        {
-            int Size = ( size < 1 ) ? DEFAULT_SIZE : size;
-            Heap = new( Size );
-        }
+        public PriorityQ ( int size ) => Heap = new( size );
 
         public void AddItem( int value ) => Heap.AddItem( value );
 

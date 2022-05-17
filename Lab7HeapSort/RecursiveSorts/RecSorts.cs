@@ -14,11 +14,9 @@ namespace RecursiveSorts
     {
         static void Main( string [ ] args ) { }
 
-
+        //TODO: Document Recursive Heap Sort
         // Heap Sort
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary>  </summary>
         /// <param name="arr"></param>
         /// <param name="size"></param>
         /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
@@ -42,6 +40,7 @@ namespace RecursiveSorts
             }
         }
 
+        //TODO: Document Recursive Heapify
         /// <summary> "Heapify a subtree rooted with (...) index in theArray." </summary>
         /// <param name="theArray"></param>
         /// <param name="size"></param>
@@ -179,11 +178,9 @@ namespace RecursiveSorts
             }
         }
 
-        /// <summary>
-        /// Swap the values of two given indeces
-        /// </summary>
-        /// <param name="index1"> The first index to swap </param>
-        /// <param name="index2"> The second index to swap </param>
+        /// <summary> Swap the values of two given indeces. </summary>
+        /// <param name="index1"> The first index to swap. </param>
+        /// <param name="index2"> The second index to swap. </param>
         /// <accreditation> https://stackoverflow.com/a/43759284 </accreditation>
         public static void Swap( int [ ] theArray, int index1, int index2 )
         {
@@ -227,12 +224,6 @@ namespace RecursiveSorts
 
 
         // Thinking Problem
-        /// <summary> This function essentially works like an indexer (arr[i]), except that the way returns the value at index is by recursively partitioning. </summary>
-        /// <param name="arr"> The array to operate on. </param>
-        /// <param name="size"> The size of the array that is being operated on. </param>
-        /// <param name="index"> The index of 'arr' from which the value will be extracted from. </param>
-        /// <returns> The value contained in 'index' </returns>
-        /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
         public static int? FindNth( int [ ] theArray, int size, int index ) => ModifiedRecurisveQuickSort( theArray, 0, size - 1, index);
 
         /// <summary> "Recursive Program that does quicksort. " </summary>
