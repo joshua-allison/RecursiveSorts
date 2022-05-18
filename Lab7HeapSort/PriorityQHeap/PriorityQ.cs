@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PriorityQHeap
+﻿namespace PriorityQHeap
 {
+    /// <summary> A simple Priority Queue (abstract class) implemented on a heap. In this case, the heap is implemented on an array. </summary>
     public class PriorityQ
     {
-        public PriorityQ ( ) { }
-        public void AddItem( int value ) => throw new NotImplementedException( );
-        public int GetItem( ) => throw new NotImplementedException( );
+            private Heap Heap { get; set; }
+
+            public PriorityQ ( int size = -1 ) => Heap = new( size );
+
+            public void AddItem( int value ) => Heap.AddItem( value );
+
+            public int GetItem( ) => Heap.GetItem( );
+        }
+
+    class Program { static void Main( string [ ] args ) { } }
     }
-}

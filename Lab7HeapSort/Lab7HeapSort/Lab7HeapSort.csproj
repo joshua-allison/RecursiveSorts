@@ -5,6 +5,11 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PriorityQHeap\PriorityQHeap.csproj" />
+    <ProjectReference Include="..\RecursiveSorts\RecursiveSorts.csproj" />
+  </ItemGroup>
+
 
 
 </Project>
