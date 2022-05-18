@@ -7,10 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace PriorityQHeap
 {
-    /// <summary>
-    /// A heap is a weakly ordered, complete binary tree. The largest value of a heap is the root.
-    /// This Heap class is implemented on an array
-    /// </summary>
+    /// <summary> A heap is a weakly ordered, complete binary tree. The largest value of a heap is the root. This Heap class is implemented on an array </summary>
     /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
     public class Heap
     {
@@ -18,7 +15,7 @@ namespace PriorityQHeap
 
         private int Size; // the current size of the heap 
 
-        private const int DEFAULT_SIZE = 10;
+        private const int DEFAULT_SIZE = 10; // the default number of elements that will be contained within the array that the heap will be implemented on..
 
         private static int Parent( int index ) => ( index - 1 ) / 2; // find the index of the parent of the index argument
 
@@ -26,11 +23,7 @@ namespace PriorityQHeap
 
         private static int Right( int index ) => ( index * 2 ) + 2;  // find the index of the right child of the index argument
 
-        // prevent the array from overflowing by doubling it's size
-        //TODO: Document Heap Class Resize
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary> Doubles the size of the heap, while maintaining array ordering. This prevents the array from overflowing. </summary>
         private void Resize( )  
         {
             int [ ] temp = HeapArray[0..Size];
@@ -45,17 +38,6 @@ namespace PriorityQHeap
             Size = ( size < 1 ) ? DEFAULT_SIZE : size ;
             HeapArray = new int[Size];
             NumItems = 0;
-        }
-
-        //TODO: Document Heap Class Resize
-        /// <summary>  </summary>
-        /// <param name="arr"></param>
-        public Heap( int[] arr)
-        {
-            HeapArray = arr;
-            NumItems = arr.Length;
-            for ( int i = NumItems / 2 - 1 ; i >= 0 ; i-- )
-                TrickleDown( i );
         }
 
         public int NumItems; // the current number of items stored in the heap
@@ -81,9 +63,8 @@ namespace PriorityQHeap
             return true;
         }
 
-        //TODO: Document Heap Class Bubbleup
         /// <summary> Sorts the Binary Heap Array after insertion. </summary>
-        /// <param name="index"></param>
+        /// <param name="index"> The index from which to begin the BubbleUp method. </param>
         /// <accreditation> Algorithm from "Open Data Structures" by Pat Morin, Chapter 10: "Heaps", page 213 </accreditation>
         public void BubbleUp( int index )
         {
@@ -109,9 +90,8 @@ namespace PriorityQHeap
             return root;
         }
 
-        //TODO: Document Heap Class Trickledown
         /// <summary> Sorts the Binary Heap Array after the removal of the last element on the last level. </summary>
-        /// <param name="index"></param>
+        /// <param name="index">  The index from which to begin the TrickleDown method.  </param>
         /// <accreditation> Algorithm from "Open Data Structures" by Pat Morin, Chapter 10: "Heaps", page 215 </accreditation>
         public void TrickleDown( int index )
         {
@@ -152,7 +132,8 @@ namespace PriorityQHeap
         }
 
         //TODO: Document and finish Heap Class ToString
-        /// <summary>  </summary>
+        /**
+        /// <summary> Returns a graphical representation of the heap as a string. </summary>
         /// <returns> A string that visually represents the binary tree heap (even though it's implemented on array). </returns>
         public override string ToString( )
         {
@@ -195,5 +176,6 @@ namespace PriorityQHeap
             }
             return sb.ToString();
         }
+        **/
     }
 }

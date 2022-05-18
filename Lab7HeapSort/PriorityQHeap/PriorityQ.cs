@@ -1,16 +1,16 @@
-﻿using System;
-using System.Drawing;
-
-namespace PriorityQHeap
+﻿namespace PriorityQHeap
 {
-    //TODO: Document PriorityQ Class
+    /// <summary> A simple Priority Queue (abstract class) implemented on a heap. In this case, the heap is implemented on an array. </summary>
     public class PriorityQ
     {
-        private Heap Heap { get; set; }
-        public PriorityQ ( int size ) => Heap = new( size );
+            private Heap Heap { get; set; }
 
-        public void AddItem( int value ) => Heap.AddItem( value );
+            public PriorityQ ( int size = -1 ) => Heap = new( size );
 
-        public int GetItem( ) => Heap.GetItem( );
+            public void AddItem( int value ) => Heap.AddItem( value );
+
+            public int GetItem( ) => Heap.GetItem( );
+        }
+
+    class Program { static void Main( string [ ] args ) { } }
     }
-}

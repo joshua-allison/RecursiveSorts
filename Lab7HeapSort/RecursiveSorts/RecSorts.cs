@@ -1,25 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-
-using PriorityQHeap;
-
-namespace RecursiveSorts
+﻿namespace RecursiveSorts
 {
     public static class RecSorts
     {
         static void Main( string [ ] args ) { }
 
-        //TODO: Document Recursive Heap Sort
-        // Heap Sort
-        /// <summary>  </summary>
-        /// <param name="arr"></param>
-        /// <param name="size"></param>
-        /// <accreditation> This class and the methods within are based on "CS260 - Heaps", & "CS260 Trees on Arrays" by Jim Bailey </accreditation>
         public static void HeapSort( int [ ] arr, int size ) => RecursiveHeapSort( arr, size );
 
         /// <summary> "Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the minimum element and place the minimum element at the beginning. We repeat the same process for the remaining elements." </summary>
@@ -40,11 +24,7 @@ namespace RecursiveSorts
             }
         }
 
-        //TODO: Document Recursive Heapify
         /// <summary> "Heapify a subtree rooted with (...) index in theArray." </summary>
-        /// <param name="theArray"></param>
-        /// <param name="size"></param>
-        /// <param name="index"></param>
         /// <accreditation> This method and the algorithm within is from "Heap Sort" found at https://www.geeksforgeeks.org/heap-sort/ </accreditation>
         private static void Heapify( int [ ] theArray, int size, int index )
         {
@@ -72,7 +52,6 @@ namespace RecursiveSorts
             }
         }
 
-
         // Merge Sort
         public static void MergeSort( int [ ] theArray, int size ) => RecursiveMergeSort( theArray, 0, size - 1);
 
@@ -95,12 +74,6 @@ namespace RecursiveSorts
             }
         }
 
-        /// <summary> "Used for merging two halves. The Merge(theArray, left, middle, right) is a key process that assumes that theArray[left..middle] and theArray[middle+1..right] are sorted and merges the two sorted sub-arrays into one. " </summary>
-        /// <param name="theArray"> The array that will be sorted and merged </param>
-        /// <param name="left"> The left-most index of theArray. </param>
-        /// <param name="middle"> The middle index of theArray. </param>
-        /// <param name="right"> The right-most index of theArray. </param>
-        /// <accreditation> This method and the algorithm within is from "Merge Sort" found at https://www.geeksforgeeks.org/merge-sort/ </accreditation>
         private static void Merge(int [] theArray, int left, int middle, int right )
         {
             // Find sizes of two subarrays to be merged
